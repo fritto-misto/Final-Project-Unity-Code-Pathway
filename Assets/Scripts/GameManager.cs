@@ -21,14 +21,4 @@ public class GameManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
-
-    public void LoadGameScene()
-    {
-        SceneManager.LoadScene(gameScene);
-    }
-
-    public void LoadMenuScene()
-    {
-        SceneManager.LoadScene(menuScene);
-    }
 }
