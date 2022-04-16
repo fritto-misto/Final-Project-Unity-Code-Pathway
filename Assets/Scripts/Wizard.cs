@@ -4,14 +4,9 @@ using UnityEngine;
 
 public class Wizard : Player
 {
-    public GameObject fireball;
-
-    protected override void Update()
+    private void Start()
     {
-        base.Update();
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ShootBullet(fireball);
-        }
+        base.shootRate = 0.5f;
+        base.lives = 5;
     }
 }

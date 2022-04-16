@@ -4,16 +4,25 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    protected virtual float speed { get; set; }
+    private float xBound = 10.0f;
 
-    // Start is called before the first frame update
-    void Start()
+    protected virtual void Update()
     {
-        
+        Move();
+        DestroyOutOfBounds();
     }
 
-    // Update is called once per frame
-    void Update()
+    void Move()
     {
-        
+        transform.Translate(Vector3.right * speed * Time.deltaTime);
+    }
+
+    void DestroyOutOfBounds()
+    {
+        if (transform.position.x > xBound || transform.position.x < -xBound)
+        {
+            Destroy(gameObject);
+        }
     }
 }

@@ -4,14 +4,9 @@ using UnityEngine;
 
 public class Archer : Player
 {
-    public GameObject arrow;
-
-    protected override void Update()
+    private void Start()
     {
-        base.Update();
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ShootBullet(arrow);
-        }
+        base.shootRate = 0.25f;
+        base.lives = 3;
     }
 }
