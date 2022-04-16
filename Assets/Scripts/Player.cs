@@ -16,11 +16,11 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = new Vector3(leftPlayerPos, middleLine, 0);
+        transform.position = GetSpawnPos();
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         float currPos = transform.position.y;
         int currLine = GetCurrentPosition();
@@ -33,6 +33,11 @@ public class Player : MonoBehaviour
         {
             Move(currLine - 1);
         }
+    }
+
+    public Vector3 GetSpawnPos()
+    {
+        return new Vector3(leftPlayerPos, middleLine, 0);
     }
 
     int GetCurrentPosition()
@@ -63,8 +68,8 @@ public class Player : MonoBehaviour
         transform.position = new Vector3(leftPlayerPos, lines[nextPosIndex], 0);
     }
 
-    void ShootBullet(float yPos, GameObject bullet)
+    protected void ShootBullet(GameObject bullet)
     {
-        Instantiate(bullet, new Vector3(leftBulletPos, yPos, 0), bullet.transform.rotation);
+        Instantiate(bullet, new Vector3(leftBulletPos, transform.position.y, 0), bullet.transform.rotation);
     }
 }

@@ -7,8 +7,6 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    private Button wizardButton;
-    private Button archerButton;
 
     public string playerType { get; private set; }
 
@@ -28,10 +26,6 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-
-        wizardButton = GameObject.Find("Wizard Button").GetComponent<Button>();
-        archerButton = GameObject.Find("Archer Button").GetComponent<Button>();
-
     }
 
     public void SetPlayerType(string type)
