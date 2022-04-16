@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    // ENCAPSULATION...
     public GameObject[] enemies;
     private GameManager gameManager;
     public GameObject wizardPrefab;
@@ -20,16 +21,16 @@ public class Spawner : MonoBehaviour
     private const float bottomLine = -4.05f;
 
     private float[] lines = new float[] { bottomLine, middleLine, topLine };
+    // ...ENCAPSULATION
 
-    // Start is called before the first frame update
     void Start()
     {
         InvokeRepeating(nameof(SpawnEnemy), delayTime, repeatRate);
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        SpawnPlayer();
+        SpawnPlayer(); // ABSTRACTION
     }
 
-    void SpawnPlayer()
+    void SpawnPlayer() // ABSTRACTION
     {
         GameObject player;
         if (gameManager.playerType == "Wizard")
@@ -43,7 +44,7 @@ public class Spawner : MonoBehaviour
         Instantiate(player, new Vector3(leftPlayerPos, middleLine, 0), player.transform.rotation);
     }
 
-    void SpawnEnemy()
+    void SpawnEnemy() // ABSTRACTION
     {
         GameObject enemy = enemies[Random.Range(0, 2)];
         float yPos = lines[Random.Range(0, 3)];

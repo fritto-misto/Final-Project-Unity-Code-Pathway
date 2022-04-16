@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2519199005559918935}
   - component: {fileID: 2519199005559918932}
   - component: {fileID: 6289203294194464242}
-  - component: {fileID: -1839871892265848423}
   - component: {fileID: 650137216601865926}
+  - component: {fileID: 914164055060886259}
   m_Layer: 0
   m_Name: Knight
   m_TagString: Untagged
@@ -111,19 +111,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.08, y: 0.08}
   m_EdgeRadius: 0
---- !u!114 &-1839871892265848423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2519199005559918933}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5afe976d313df6f44b71e63090fea7b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 6528278049000288111, guid: b74e3a7803b22354abb0bf258d686639, type: 3}
 --- !u!50 &650137216601865926
 Rigidbody2D:
   serializedVersion: 4
@@ -145,3 +132,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &914164055060886259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2519199005559918933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e30d7b7fdb7b744794fc751a76a3ec5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 6528278049000288111, guid: b74e3a7803b22354abb0bf258d686639, type: 3}

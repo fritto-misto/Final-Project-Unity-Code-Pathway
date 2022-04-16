@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public string playerType { get; private set; }
+    public string playerType { get; private set; } // ENCAPSULATION
 
     private int menuScene = 0;
     private int gameScene = 1;

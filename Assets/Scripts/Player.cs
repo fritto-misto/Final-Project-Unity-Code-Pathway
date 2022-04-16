@@ -6,8 +6,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    public TextMeshPro livesText;
-
+    // ENCAPSULATION...
     public GameObject bullet;
     protected int lives;
     protected float shootRate;
@@ -22,37 +21,36 @@ public class Player : MonoBehaviour
     private const float bottomLine = -4.05f;
 
     private float[] lines = new float[] { bottomLine, middleLine, topLine };
+    // ...ENCAPSULATION
 
-    // Start is called before the first frame update
     void Start()
     {
-        transform.position = GetSpawnPos();
+        transform.position = GetSpawnPos(); // ABSTRACTION
     }
 
-    // Update is called once per frame
     protected virtual void Update()
     {
         float currPos = transform.position.y;
-        int currLine = GetCurrentPosition();
+        int currLine = GetCurrentPosition(); // ABSTRACTION
 
         if (lives < 1)
         {
-            GameOver();
+            GameOver(); // ABSTRACTION
         }
 
         if (Input.GetKeyDown(KeyCode.UpArrow) && currPos != topLine)
         {
-            Move(currLine + 1);
+            Move(currLine + 1); // ABSTRACTION
         }
         if (Input.GetKeyDown(KeyCode.DownArrow) && currPos != bottomLine)
         {
-            Move(currLine - 1);
+            Move(currLine - 1); // ABSTRACTION
         }
         if (Input.GetKeyDown(KeyCode.Space) && canShoot)
         {
             canShoot = false;
             StartCoroutine(ShootCountdown());
-            ShootBullet(bullet);
+            ShootBullet(bullet); // ABSTRACTION
         }
     }
 
@@ -62,12 +60,12 @@ public class Player : MonoBehaviour
         canShoot = true;
     }
 
-    public Vector3 GetSpawnPos()
+    public Vector3 GetSpawnPos() // ABSTRACTION
     {
         return new Vector3(leftPlayerPos, middleLine, 0);
     }
 
-    int GetCurrentPosition()
+    int GetCurrentPosition() // ABSTRACTION
     {
         int currPosIndex;
         switch (transform.position.y)
@@ -85,17 +83,17 @@ public class Player : MonoBehaviour
         return currPosIndex;
     }
 
-    void Move(float nextPos)
+    void Move(float nextPos) // POLYMORPHISM // ABSTRACTION
     {
         transform.position = new Vector3(leftPlayerPos, nextPos, 0);
     }
 
-    void Move(int nextPosIndex)
+    void Move(int nextPosIndex) // POLYMORPHISM // ABSTRACTION
     {
         transform.position = new Vector3(leftPlayerPos, lines[nextPosIndex], 0);
     }
 
-    protected void ShootBullet(GameObject bullet)
+    protected void ShootBullet(GameObject bullet) // ABSTRACTION
     {
         Instantiate(bullet, new Vector3(leftBulletPos, transform.position.y, 0), bullet.transform.rotation);
     }
@@ -104,18 +102,18 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("EnemyFire"))
         {
-            UpdateLives(-1);
+            UpdateLives(-1); // ABSTRACTION
             Destroy(collision.gameObject);
         }
     }
 
-    void UpdateLives(int livesToAdd)
+    void UpdateLives(int livesToAdd) // ABSTRACTION
     {
         lives -= livesToAdd;
-        livesText.text = "Lives: " + lives;
+        //change displayed number on canvas
     }
 
-    void GameOver()
+    void GameOver() // ABSTRACTION
     {
         Debug.Log("Game Over");
     }

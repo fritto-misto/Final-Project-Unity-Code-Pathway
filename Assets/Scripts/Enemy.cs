@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    // ENCAPSULATION...
     public GameObject bullet;
 
     private const float leftBulletPos = 6f;
 
     private float delayTime = 0.3f;
     private float repeatRate;
+    // ...ENCAPSULATION
 
     private void Start()
     {
@@ -17,7 +19,7 @@ public class Enemy : MonoBehaviour
         InvokeRepeating(nameof(ShootBullet), delayTime, repeatRate);
     }
 
-    protected void ShootBullet()
+    protected void ShootBullet() // ABSTRACTION
     {
         Instantiate(bullet, new Vector3(leftBulletPos, transform.position.y, 0), bullet.transform.rotation);
     }

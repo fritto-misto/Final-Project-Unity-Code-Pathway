@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Archer : Player
+public class Archer : Player // INHERITANCE
 {
     private void Start()
     {
